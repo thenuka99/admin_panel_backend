@@ -1,0 +1,553 @@
+{
+  "info": {
+    "_postman_id": "fad4898b-d6c7-474d-ad61-2b49b14db798",
+    "name": "Servicr",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19501531"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/auth/login",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"SP\",\r\n    \"userType\": \"sp\",\r\n    \"email\": \"sp@2example.com\",\r\n    \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/api/auth/register",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get all users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/users",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get user by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/users/62a81c19a574bf1d70caa77e",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["users", "62a81c19a574bf1d70caa77e"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit User",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"User Edited\",\r\n    \"userType\": \"client\",\r\n    \"email\": \"user@ethos.com\",\r\n    \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/users/62a36e91128a4940c81ec45d",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["users", "62a36e91128a4940c81ec45d"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete user",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Rayson Edited\",\r\n    \"userType\": \"client\",\r\n    \"email\": \"user@ethos.com\",\r\n    \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/users/62a36e91128a4940c81ec45d",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["users", "62a36e91128a4940c81ec45d"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Service",
+      "item": [
+        {
+          "name": "Categories Add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Plumbing\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/categories",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Categories Get",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Plumbing\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/categories",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["categories"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Service Create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Garden cleaning\",\r\n    \"serviceProvider\": \"62a36e91128a4940c81ec45d\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"fee\":\"550\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/services/create",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["services", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Service delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Appointments",
+      "item": [
+        {
+          "name": "Appointment Create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"client\": \"62af11fa3352b446882ff455\",\r\n    \"serviceProvider\":\"62a86adcb7d20b2aa40499b2\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"address\":\"550\",\r\n    \"date\":\"2022-06-21 12:26:03.374561\",\r\n    \"price\":\"550\",\r\n    \"status\":\"true\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/appointments",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["appointments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all Appointments",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"service\": \"62a385a90c4e9e467c5fc726\",\r\n    \"client\": \"62a36ea0128a4940c81ec45e\",\r\n    \"serviceProvider\": \"62a36e91128a4940c81ec45d\",\r\n    \"serviceCategory\":\"62a308c578a1dc49d4963ad1\",\r\n    \"address\":\"550\",\r\n    \"date\":\"550\",\r\n    \"price\":\"550\",\r\n    \"status\":\"active\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/appointments",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["appointments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get appointment by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete appointment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Appointment",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Create Review",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"addedOn\":\"2022-03-14T23:00:00Z\",\r\n    \"addedby\":\"\",\r\n    \"review\": \"issa modaya\",\r\n    \"servicer\":\"\",\r\n    \"starRating\":\"5\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/reviews/create",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["reviews", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get  all reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update reviews",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete reviews",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get reviews by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Earnings",
+      "item": [
+        {
+          "name": "Create Earnings",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all Earnings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Earnings by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get profit",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ServiceProvider",
+      "item": [
+        {
+          "name": "Create serviceProvider",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"serviceProviderID\": \"62b053cebbfd820b8c3bac84\",\r\n\"categoryID\":\"62a308c578a1dc49d4963ad1\",\r\n\"certificates\":\"[{certificates:test}]\" ,\r\n\"isApprovedStatus\":\"true\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiBaseUrl}}/serviceProvider",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["serviceProvider"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all serviceProviders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/serviceProvider",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["serviceProvider"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get serviceProviders by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/serviceProvider/62b056424ad0f2b5c3254faa",
+              "host": ["{{apiBaseUrl}}"],
+              "path": ["serviceProvider", "62b056424ad0f2b5c3254faa"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update serviceProviders",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete serviceProviders",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/",
+              "host": ["{{apiBaseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "apiBaseUrl",
+      "value": "https://servicr.herokuapp.com/api",
+      "type": "string"
+    }
+  ]
+}
