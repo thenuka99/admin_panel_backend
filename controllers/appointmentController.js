@@ -24,6 +24,7 @@ exports.getAll=(async(req, res) => {
 
 // Update
 exports.update=(async(req, res) => {
+  console.log(req.body);
   appointment.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
     ResponseService.generalPayloadResponse(err, doc, res);
   });
