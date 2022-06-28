@@ -22,6 +22,14 @@ router.get("/", (req, res) => {
     .sort({ addedOn: -1 });
 });
 
+router.get("/clients", (req, res) => {
+  user
+    .find({ userType : "client"  },(err, doc) => {
+      ResponseService.generalPayloadResponse(err, doc, res);
+    })
+    .sort({ addedOn: -1 });
+});
+
 // Update
 router.put("/:id", async (req, res) => {
   user.findOneAndUpdate(req.body.id, req.body, (err, doc) => {

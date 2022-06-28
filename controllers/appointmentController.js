@@ -15,10 +15,22 @@ exports.getAll=(async(req, res) => {
       ResponseService.generalPayloadResponse(err, doc, res);
     })
     .sort({ addedOn: -1 })
-    .populate("service", "title")
-    .populate("client", "name email nic mobileNo")
-    .populate("serviceProvider", "serviceProviderID")
-    .populate("serviceCategory.serviceProviderID", "name email nic mobileNo")
+    // .populate("service", "title")
+    .populate("client", "name email nic mobileNo city")
+    //.populate("serviceProvider", "serviceProviderID")
+    .populate({
+      path:'serviceProvider',
+      populate:[
+        {
+          path: 'serviceProviderID',
+          select:'name'
+        }
+
+
+      ],
+    })
+    .populate("Service", "title")
+     //.populate("serviceCategory.serviceProviderID", "name email nic mobileNo")
     .populate("serviceCategory", "name");
 });
 
