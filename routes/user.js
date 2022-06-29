@@ -15,16 +15,8 @@ router.get("/", (req, res) => {
 });
 
 //get all clients
-router.get("/clients/", (req, res) => {
-  user.find({userType : "client"},(err, doc) => {
-      ResponseService.generalPayloadResponse(err, doc, res);
-    })
-    .sort({ addedOn: -1 });
-});
-
 router.get("/clients", (req, res) => {
-  user
-    .find({ userType : "client"  },(err, doc) => {
+  user.find({ userType : "client"},(err, doc) => {
       ResponseService.generalPayloadResponse(err, doc, res);
     })
     .sort({ addedOn: -1 });
