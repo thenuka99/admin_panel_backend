@@ -31,9 +31,8 @@ const appointmentSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true,
-    // min: 0,
-    // max: 1000,
   },
+  
   // accept or decline
   serviceAcceptedStatus: { 
     type: Boolean , 

@@ -10,6 +10,12 @@ router.post("/", async (req, res) =>  appointmentController.create(req,res));
 //get all
 router.get("/", (req, res) => appointmentController.getAll(req,res));
 
+//get all approve appointments
+router.get("/approve", (req, res) => appointmentController.getAllAppoved(req,res));
+
+//get all reject appointments
+router.get("/reject", (req, res) => appointmentController.getAllRejected(req,res));
+
 // Update
 router.put("/", async (req, res) => appointmentController.update(req,res));
 

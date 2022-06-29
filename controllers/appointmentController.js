@@ -22,6 +22,31 @@ exports.getAll=(async(req, res) => {
     .populate("serviceCategory", "name");
 });
 
+//get all approved appointments
+exports.getAllAppoved =(async(req, res) => {
+  appointment.find({ serviceAcceptedStatus: true},(err, doc) => {
+      ResponseService.generalPayloadResponse(err, doc, res);
+    })
+    .sort({ addedOn: -1 })
+    .populate("service", "title")
+    .populate("client", "name email nic mobileNo")
+    .populate("serviceProvider", "serviceProviderID")
+    .populate("serviceCategory.serviceProviderID", "name email nic mobileNo")
+    .populate("serviceCategory", "name");
+});
+
+//get all rejected appointments
+exports.getAllRejected =(async(req, res) => {
+  appointment.find({ serviceAcceptedStatus: false},(err, doc) => {
+      ResponseService.generalPayloadResponse(err, doc, res);
+    })
+    .sort({ addedOn: -1 })
+    .populate("service", "title")
+    .populate("client", "name email nic mobileNo")
+    .populate("serviceProvider", "serviceProviderID")
+    .populate("serviceCategory.serviceProviderID", "name email nic mobileNo")
+    .populate("serviceCategory", "name");
+});
 // Update
 exports.update=(async(req, res) => {
   console.log(req.body);

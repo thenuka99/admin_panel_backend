@@ -6,17 +6,17 @@ const mongoose = require("mongoose");
 const user = mongoose.model("User");
 const ResponseService = require("../utils/ResponsesService"); // Response service
 
-// Create
-// router.post("/", async (req, res) => {
-//   new user(req.body).save((err, doc) => {
-//     ResponseService.generalPayloadResponse(err, doc, res);
-//   });
-// });
-
 //get all
 router.get("/", (req, res) => {
-  user
-    .find((err, doc) => {
+  user.find((err, doc) => {
+      ResponseService.generalPayloadResponse(err, doc, res);
+    })
+    .sort({ addedOn: -1 });
+});
+
+//get all clients
+router.get("/clients/", (req, res) => {
+  user.find({userType : "client"},(err, doc) => {
       ResponseService.generalPayloadResponse(err, doc, res);
     })
     .sort({ addedOn: -1 });
