@@ -16,14 +16,17 @@ exports.getAll = (req, res) => {
       ResponseService.generalPayloadResponse(err, doc, res);
     })
     .sort({ addedOn: -1 })
-    .populate( "serviceProviderID","name userType email nic dob gender province city ");
+    .populate( "serviceProviderID","name userType email nic dob gender province city ")
+    .populate("categoryID","name");
 };
 
 // Update
 exports.update = async (req, res) => {
   serviceProvider.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
     ResponseService.generalPayloadResponse(err, doc, res);
-  });
+  })
+
+  .populate( "serviceProviderID","name userType email nic dob gender province city ");
 };
 
 // Get by id
