@@ -34,7 +34,6 @@ exports.getById = (async (req, res) => {
   serviceProvider.findById(req.params.id, (err, doc) => {
     ResponseService.generalPayloadResponse(err, doc, res);
   })
-
   .populate( "serviceProviderID","name userType email nic dob gender province city ");
 });
 

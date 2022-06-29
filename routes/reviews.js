@@ -10,6 +10,9 @@ router.post("/", async (req, res) => ReviewController.create(req,res));
 //get all
 router.get("/", (req, res) => ReviewController.getAll(req,res));
 
+//get by servicer
+router.get("/user/:id", (req, res) => ReviewController.getBySp(req,res));
+
 // Update
 router.put("/", async (req, res) => ReviewController.update(req,res));
 
